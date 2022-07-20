@@ -7,8 +7,8 @@ from selenium.webdriver.common.by import By
 # TODO: refer - lambda test website
 
 class WebDriverSetUp:
-    def __int__(self, browser_name):
-        self.browser = browser_name
+    def __init__(self, browser):
+        self.browser = browser
 
     driver = None
 
@@ -21,32 +21,41 @@ class WebDriverSetUp:
             return WebDriverSetUp.driver
 
 
-# chrome_options.add_argument('--profile-directory=default')
 class Base:
     def __init__(self, driver):
         self.driver = driver
 
-    def open_url(self):
+    def open_url(self, url):
         self.driver.implicitly_wait(10)
         self.driver.maximize_window()
         time.sleep(3)
-        self.driver.get("https://messages.google.com/web/conversations")
+        self.driver.get(url)
 
+    def click_element(self, locator):
+        self.driver.find_element(By.XPATH, locator).click()
+        time.sleep(3)
+
+    def get_text_from_element(self, locator):
+        return self.driver.find_element(By.XPATH, locator).text
+
+    def browser_teardown(self):
+        self.driver.close()
+        self.driver.quit()
 
 # $
-print(driver.title)
-ele1 = driver.find_element(By.XPATH,
-                           "//span[text()='JK-JIOENG']/ancestor::mws-conversation-list-item[@class='ng-star-inserted']/a")
+# print(driver.title)
+# ele1 = driver.find_element(By.XPATH,
+#                            "//span[text()='JK-JIOENG']/ancestor::mws-conversation-list-item[@class='ng-star-inserted']/a")
 # # ele1 = driver.find_element_by_xpath(
 # #     "//span[text()='TM-WOWSKN']/ancestor::mws-conversation-list-item[@class='ng-star-inserted']/a")
 #
 # # time.sleep(10)
-ele1.click()
-time.sleep(3)
-msg = driver.find_element(By.XPATH, "(//*[@class='text-msg-content'])[10]/div")
-print(msg.text)
+# ele1.click()
+# time.sleep(3)
+# msg = driver.find_element(By.XPATH, "(//*[@class='text-msg-content'])[10]/div")
+# print(msg.text)
 
-driver.close()
+#driver.close()
 
-d
+#d
 # d
