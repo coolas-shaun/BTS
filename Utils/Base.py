@@ -42,20 +42,4 @@ class Base:
         self.driver.close()
         self.driver.quit()
 
-# $
-# print(driver.title)
-# ele1 = driver.find_element(By.XPATH,
-#                            "//span[text()='JK-JIOENG']/ancestor::mws-conversation-list-item[@class='ng-star-inserted']/a")
-# # ele1 = driver.find_element_by_xpath(
-# #     "//span[text()='TM-WOWSKN']/ancestor::mws-conversation-list-item[@class='ng-star-inserted']/a")
-#
-# # time.sleep(10)
-# ele1.click()
-# time.sleep(3)
-# msg = driver.find_element(By.XPATH, "(//*[@class='text-msg-content'])[10]/div")
-# print(msg.text)
 
-#driver.close()
-
-#d
-# d
